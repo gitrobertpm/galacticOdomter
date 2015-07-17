@@ -23,7 +23,7 @@
 					<div id="ring_R"></div>
 					<div id="ringShadow"></div>
 				</div>
-				<h1 style="font-weight: 100;" class="centeredText">Your Personal Galactic Odometer</h1>
+				<h1 id="mainTitle" class="centeredText">Your Personal Galactic Odometer</h1>
 			</header>
 			<div id ="mainDiv">
 				<div id="windshield">
@@ -31,9 +31,12 @@
 						<div id="innerWindshield2">
 							<div id="rearviewArm"></div>
 							<div id="rearview"></div>
-							<p>Multiple sources claim that the average individual will walk about 110,000 miles and drive almost a million.</p>
-							<p>That's the equivalent of walking the circumference of the Earth's equator more than 4 times, and driving around it nearly 40.</p>
-							<p>But that's nothing compared to the space-miles one travels in a single hour.</p>
+							<div id="windshieldText">
+								<p>Multiple sources claim that the average individual will walk about 110,000 miles and drive almost a million in a single lifetime.</p>
+								<p>That's the equivalent of walking the circumference of the Earth's equator more than 4 times, and driving around it nearly 40.</p>
+								<p>But that's nothing compared to the space-miles one travels in a single hour.</p>
+							</div>
+							<br>
 							<div id="wiper_L"></div>
 							<div id="wiperArm_L"></div>
 							<div id="wiper_R"></div>
@@ -46,21 +49,26 @@
 						<div id="innerFormDiv">
 							<div id="innerFormDiv2">
 								<h2 style="font-weight: 100;" class="centeredText">Enter your DOB coordinates</h2>
+								
 								<div class="inputDiv">
 									<label for="yearBorn">- Year -</label><br>
-									<input type="text" id="yearBorn" class="centeredText" placeholder="1989, 1999, 2009, etc...">
+									<select type="text" id="yearBorn" class="centeredText"></select>
+									<div id="decoCover1" class="decoCover"></div>	
 								</div>
+								
 								<div class="inputDiv">
-									 
 									<label for="monthBorn">- Month -</label><br>
-									<input type="text" id="monthBorn" class="centeredText" placeholder="1 for January, 2 for February, 3 for March, etc...">
+									<select type="text" name="year" id="monthBorn" class="centeredText"></select>
+									<div id="decoCover2" class="decoCover"></div>
 								</div>
+								
 								<div class="inputDiv">
-									
 									<label for="dayBorn">- Day -</label><br>
-									<input type="text" id="dayBorn" class="centeredText" placeholder="1, 2, 3, 19, etc...">
+									<select type="text" id="dayBorn" class="centeredText"></select>
+									<div id="decoCover3" class="decoCover"></div>
 								</div>
-								<button onclick="getMiles();">Get Your Mileage</button>
+
+								<button onclick="getMiles()">Get Your Mileage</button>
 								<button onclick="reset()" id="reset">Reset</button>
 							</div>
 						</div>
@@ -68,32 +76,92 @@
 					<br>
 					<div id="outerClockDiv">
 						<div id="outerClockDiv2">
-							<div id="clock"><p id="clockP"></p></div>
+							<div id="clock"><p id="clockP" class="centeredText"></p></div>
 						</div>
 					</div>
 					<br>
 					<div id="odometerDiv">
-						<p id="odometerP"><span id="odometer">000,000,000,000,000,000</span> <span id="olive"><b>SPACE-MILES</b></span></p>
+						<p id="odometerP"><span id="odometer">000,000,000,000,000,000</span> <span id="olive">SPACE-MILES</span></p>
 					</div>
 					<br>
 				</div>
-				<h1 style="font-weight: 100;" id="explanation" class="centeredText">EXPLANATION</h1>
-				<p>This number is an approximation, but it should give you an idea of the great distances each of us travel in our lifetime.</p>
-				<p>Here's how we come up with this number.</p>
-				<p>An individual standing still at the equator is moving with the spin of the Earth at <b>1,037</b> mph.</p>
-				<p>At 45 degrees latitude, that individual's speed would be <b>733</b> mph.</p>
-				<p>As our planet orbits the sun, everyone on Earth is moving through space at a rate of <b>66,667</b> mph.</p>
-				<p>As our entire solar system orbits the super-massive black hole, Sagittarius A*, at the galactic center, every Earthling rides along on one of the Milky Way's spiral arms at approximately <b>550,000</b> mph.</p>
-				<p>Our solar system is also bobbing up and down at quite a clip as it revolves around the galaxy.  Right now, relative to the galactic disk, we're moving up at approximately <b>15,700</b> mph.</p>
-				<p>And using some of our nearest celestial neighbors as reference points, it has been estimated that the entire Milky Way galaxy is hurtling through interstellar space at an astonishing <b>2,237,000</b> mph.</p>
-				<p>So, if you disregard miles walked or driven, and add up the rest, an individual on the equator is travelling through space at approximately <b>2,870,404</b> mph, or <b>797</b> miles per second.</p>
-				<p>And an individual at 45 degrees latitude is moving at approximately <b>2,870,100</b> mph, which, when rounded to the nearest whole number, still works out to <b>797</b> miles per second.</p>
-				<p>That's like circumnavigating the Earth's circumference almost twice every minute.</p>
-				<p>So, never let anyone tell you that you haven't been around, because baby, you're a flyin'.</p>
-				<p class="centeredText">&copy;Robert PM&copy;</p>
-				<p class="centeredText">&#9775;</p>
+				<h1 style="font-weight: 100;" id="explanation" class="centeredText">EXPLANATION<br>&#8681;</h1>
+				<br>
+				<div id="explanationDiv">
+					<p>This number is an approximation, but it should give you an idea of the great distances each of us travel in our lifetime.</p>
+					<p>Here's how we come up with this number.</p>
+					<p>An individual standing still at the equator is moving with the spin of the Earth at <span>1,037</span> mph.</p>
+					<p>At 45 degrees latitude, that individual's speed would be <span>733</span> mph.</p>
+					
+					<div id="globeWrapper">
+						<div id="coolGlobe"></div>
+						<div id="fortyFiveLat" class="lat"><p><span>733</span> mph</p></div>
+						<div id="eLat" class="lat"><p><span>1,037</span> mph</p></div>
+					</div>
+					<br>
+					
+					<p>As our planet orbits the sun, we're moving through space at a rate of <span>66,667</span> mph.</p>
+					
+					<div id="solarWrapper">
+						<div id="sun"></div>
+						<div id="orbitSpeedWrapper">
+							<div id="coolGlobe2"></div>
+							<div id="orbitSpeedText" class="lat"><p><span>66,667</span> mph</p></div>
+						</div>
+						<p>Not to scale<br>The Sun is actually a million times larger than the Earth</p>
+					</div>
+					<br>
+					
+					<p>As our entire solar system orbits the super-massive black hole, Sagittarius A*, at the galactic center, every Earthling rides along on one of the Milky Way's spiral arms at approximately <span>550,000</span> mph.</p>
+					
+					<div id="galaxyWrapper">
+						<p>Keep this in mind.  All of those little glowing dots are stars.  Though they make look close to one another from this distance, our Sun's nearest neighboring star is <span>4,000</span> light years away. That means if you were to travel at around <span>670,000,000</span> mph, it would take you <span>4,000</span> years to get there.</p>
+						<img src="img/milkyway.jpg" alt="Milkyway">
+					</div>
+					
+					<p>Our solar system is also bobbing up and down at quite a clip as it revolves around the galaxy.  Right now, relative to the galactic disk, we're moving up at approximately <span>15,700</span> mph.</p>
+					
+					<div id="upwardDiv">
+						<img src="img/upward.png" alt="Upward momentum and trajectory">
+						<p>As of the year 2015, we are apparently hurtling upward relative to the galactic disk.  Don't worry, according to cosmologists, at some point in the distant future, this upward momentum will eventually slow and reverse itself.  We will begin to dip back into the galactic disk, and the below it.  Then back up again.  Up and down.  Round and round.</p>
+					</div>
+					<br>
+					<br>
+					
+					<p>Using some of our nearest celestial neighbors as reference points, it has been estimated that the entire Milky Way galaxy is hurtling through interstellar space at an astonishing <span>2,237,000</span> mph.</p>
+					
+					<div id="youtubeDiv">
+						<p>Check out this amazing video for an idea of the sheer size of the intersteller space through which we are racing<br>Don't take your eyes off the focal point and your mind will be blown</p>
+						<iframe width="854" height="510" src="https://www.youtube.com/embed/HiN6Ag5-DrU" frameborder="0" allowfullscreen></iframe>
+					</div>
+					
+					<p>So, if you disregard miles walked or driven, and add up the rest, an individual on the equator is travelling through space at approximately <span>2,870,404</span> mph, or <span>797</span> miles per second.</p>
+					<p>And an individual at 45 degrees latitude is moving at approximately <span>2,870,100</span> mph, which, when rounded to the nearest whole number, still works out to <span>797</span> miles per second.</p>
+					<p>That's like circumnavigating the Earth's circumference almost twice every minute.</p>
+					<p>So, never let anyone tell you that you haven't been around, because baby, you're a flyin'.</p>
+					<br>
+					<p style="text-align: right">Cheers.</p>
+					<p style="text-align: right; font-style: italic">Robert Manolis</p>
+					<br>
+					<p style="text-align: center; font-style: italic">** Velocities are approximations taken from Wikipedia and NASA websites **</p>
+					<br>
+				</div>
+				<br>
 			</div>
 		</div>
+		<footer>
+			<br>
+			<br>
+			<ul>
+				<li><a href="https://www.linkedin.com/pub/robert-manolis/b1/40a/34a" target="_blank">LinkedIn<br><img src="img/linkedin.png" alt="linkedin icon"></a></li>
+				<li><a href="https://github.com/gitrobertpm" target="_blank">GitHub<br><img src="img/github.png" alt="github icon"></a></li>
+				<li><a href="http://teamtreehouse.com/robertmanolis" target="_blank">Treehouse<br><img src="img/treehouse.png" alt="treehouse icon"></a></li>
+				<li><a href="http://gitrobertpm.github.io/thewayunraveled" target="_blank">The Way Unraveled<br><img src="img/twu.png" alt="the way unraveled icon"></a></li>
+			</ul>
+				
+			<p class="centeredText">&#9775;</p>
+			<p class="centeredText">&copy; Robert PM &copy;</p>
+		</footer>
 		<script src="js/index.js"></script>
 	</body>
 </html>
