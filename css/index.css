@@ -502,9 +502,10 @@ button:active, button:focus, button:hover {
 }
 
 #orbitSpeedText {
-	margin-top: -35px;
-	margin-left: 15px;
-	-webkit-transform: rotate(5deg);-ms-transform: rotate(5deg);transform: rotate(5deg);
+	text-align: left;
+	margin-top: -70px;
+	margin-left: 5px;
+	-webkit-transform: rotate(-23deg);-ms-transform: rotate(-23deg);transform: rotate(-23deg);
 }
 
 #coolGlobe2 {
@@ -553,6 +554,12 @@ button:active, button:focus, button:hover {
 	margin: 25px auto 50px;
 }
 
+#galaxyWrapper img {
+	text-align: center;
+	width: 95%;
+	max-width: 500px;
+}
+
 #galaxyWrapper p {
 	text-align: justify;
 	font-style: italic;
@@ -566,7 +573,13 @@ button:active, button:focus, button:hover {
 	margin: auto;
 }
 
-#upward p {
+#upwardDiv img {
+	width: 95%;
+	max-width: 500px;
+	margin: auto;
+}
+
+#upwardDiv p {
 	text-align: justify;
 	font-style: italic;
 	font-size: .8em;
@@ -576,7 +589,7 @@ button:active, button:focus, button:hover {
 #youtubeDiv {
 	width: 95%;
 	max-width: 840px;
-	margin: 50px auto 75px;
+	margin: 50px auto;
 }
 
 iframe {
@@ -620,6 +633,21 @@ a {
  footer img {
 	width: 50px;
 	height: 50px;
+}
+
+/* MEDIA QUERRIES FOR MOBILE SCREENS */
+@media screen and (max-width: 500px) {
+	#earth {
+		-webkit-animation: none;animation: none;
+	}
+	
+	#orbitSpeedWrapper {
+		-webkit-animation: none;animation: none;
+	}
+
+	#earth2 {
+		-webkit-animation: none;animation: none;
+	}
 }
 
 /* MEDIA QUERRIES FOR LARGE SCREENS */
