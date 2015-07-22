@@ -637,7 +637,7 @@ iframe {
 /* FOOTER STUFF */
 footer {
 	border-top: 5px solid black;
-	background: -webkit-linear-gradient(left, rgb(200,200,200), rgb(225,225,225), rgb(200,200,200));background: linear-gradient(to right, rgb(200,200,200), rgb(225,225,225), rgb(200,200,200));
+	background: -webkit-linear-gradient(left, rgb(200,200,200), rgb(255,255,255), rgb(200,200,200));background: linear-gradient(to right, rgb(200,200,200), rgb(255,255,255), rgb(200,200,200));
 }
 
 ul {
