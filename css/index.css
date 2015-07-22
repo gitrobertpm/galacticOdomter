@@ -629,6 +629,7 @@ iframe {
 
 #youtubeDiv p {
 	text-align: center;
+	font-style: italic;
 	font-size: .8em;
 	margin-bottom: 10px;
 }
