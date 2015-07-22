@@ -57,7 +57,7 @@ function updateClock() {
 	currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 
 	// Compose the string for display
-	var currentTimeString = "As of " + w + m + md + ", " + y + ", at " + currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay + ", you have traveled approximately, ";
+	var currentTimeString = "As of " + w + m + md + ", " + y + ", at " + currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay + ", you have traveled approximately,<br>&#8681;<br>";
 
 	// Update the time display
 	document.getElementById("clockP").innerHTML = currentTimeString;

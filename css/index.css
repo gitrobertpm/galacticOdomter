@@ -272,7 +272,9 @@ label {
 select,
 input {
 	display: inline-block;
+	font-size: 1.25em;
 	width: 90%;
+	height: 30px;
 	margin: 5px auto;
 	border: none;
 	border-top: 1px solid khaki;
@@ -282,9 +284,9 @@ input {
 
 button {
 	display: block;
-	font-size: .95em;
-	width: 150px;
-	height: 25px;
+	font-size: 1.25em;
+	width: 200px;
+	height: 50px;
 	margin: 10px auto;
 	padding: 2.5px;
 	color: ivory;
@@ -304,8 +306,13 @@ button:active, button:focus, button:hover {
 	top: 28px;
 	right: 15px;
 	width: 17.5px;
-	height: 17.5px;
+	height: 30px;
 	background: rgba(0,0,0,0.7);
+}
+
+#getMiles {
+	height: 50px;
+	width: 200px;
 }
 
 #reset {
@@ -374,6 +381,10 @@ button:active, button:focus, button:hover {
 /* SPIN SPEED */
 #globeWrapper {
 	position: relative;
+	background: black;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin: 25px auto 75px;
 }
 
 #coolGlobe {
@@ -393,7 +404,7 @@ button:active, button:focus, button:hover {
 	width: 150px;
 	height: 150px;
 	margin: 25px auto;
-	background-image: url('../img/world.png');
+	background-image: url('../img/world3.png');
 	background-repeat: repeat-X;
 	background-size: auto 150px;
 	background-position: left bottom;
@@ -420,33 +431,40 @@ button:active, button:focus, button:hover {
 	left: 50%;
 	width: 85px;
 	height: 15px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid ivory;
 	-webkit-transform: rotate(23deg);-ms-transform: rotate(23deg);transform: rotate(23deg);
 }
 
 #fortyFiveLat {
-	top: 67.5px;
+	top: 142.5px;
 	margin-left: 75px;
 }
 
 #fortyFiveLat p {
 	text-indent: 5px;
+	color: ivory;
 }
 
 #eLat{
-	top: 20px; 
+	top: 95px; 
 	margin-left: -152.5px;
 }
 
 #eLat p {
 	text-align: right;
 	margin-right: 0px;
+	color: ivory;
 }
 
 /* ORBIT SPEED */
 #solarWrapper {
 	position: relative;
 	text-align: center;
+	background: black;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin: 25px auto 75px;
+	z-index: -99;
 }
 
 #solarWrapper p {
@@ -467,7 +485,7 @@ button:active, button:focus, button:hover {
 
 #orbitSpeedWrapper {
 	position: absolute;
-	top: 80px;
+	top: 125px;
 	left: 50%;
 	width: 75px;
 	height: 75px;
@@ -479,26 +497,26 @@ button:active, button:focus, button:hover {
 
 /* ORBIT */
 @-webkit-keyframes orbit {
-	0% { top: 80px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
-	23% { top: 70px; margin-left: 197px; z-index: -9; }
-	25% { top: 70px; margin-left: 200px; z-index: -9; }
-	27% { top: 70px; margin-left: 197px; z-index: -9; }
-	50% { top: 60px; margin-left: 0px; z-index: -9; -webkit-transform: scale(.25) rotate(23deg); transform: scale(.25) rotate(23deg); }
+	0% { top: 125px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
+	23% { top: 115px; margin-left: 197px; z-index: -9; }
+	25% { top: 115px; margin-left: 200px; z-index: -9; }
+	27% { top: 115px; margin-left: 197px; z-index: -9; }
+	50% { top: 105px; margin-left: 0px; z-index: -9; -webkit-transform: scale(.25) rotate(23deg); transform: scale(.25) rotate(23deg); }
 	70% { z-index: -9; }
-	74% { top: 70px; margin-left: -200px; z-index: 9; }
-	76% { top: 70px; margin-left: -200px; z-index: 9; }
-	100% { top: 80px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
+	74% { top: 115px; margin-left: -200px; z-index: 9; }
+	76% { top: 115px; margin-left: -200px; z-index: 9; }
+	100% { top: 125px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
 }
 @keyframes orbit {
-	0% { top: 80px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
-	23% { top: 70px; margin-left: 197px; z-index: -9; }
-	25% { top: 70px; margin-left: 200px; z-index: -9; }
-	27% { top: 70px; margin-left: 197px; z-index: -9; }
-	50% { top: 60px; margin-left: 0px; z-index: -9; -webkit-transform: scale(.25) rotate(23deg); transform: scale(.25) rotate(23deg); }
+	0% { top: 125px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
+	23% { top: 115px; margin-left: 197px; z-index: -9; }
+	25% { top: 115px; margin-left: 200px; z-index: -9; }
+	27% { top: 115px; margin-left: 197px; z-index: -9; }
+	50% { top: 105px; margin-left: 0px; z-index: -9; -webkit-transform: scale(.25) rotate(23deg); transform: scale(.25) rotate(23deg); }
 	70% { z-index: -9; }
-	74% { top: 70px; margin-left: -200px; z-index: 9; }
-	76% { top: 70px; margin-left: -200px; z-index: 9; }
-	100% { top: 80px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
+	74% { top: 115px; margin-left: -200px; z-index: 9; }
+	76% { top: 115px; margin-left: -200px; z-index: 9; }
+	100% { top: 125px; margin-left: 0px; z-index: 9; -webkit-transform: scale(1) rotate(23deg); transform: scale(1) rotate(23deg); }
 }
 
 #orbitSpeedText {
@@ -506,6 +524,10 @@ button:active, button:focus, button:hover {
 	margin-top: -70px;
 	margin-left: 5px;
 	-webkit-transform: rotate(-23deg);-ms-transform: rotate(-23deg);transform: rotate(-23deg);
+}
+
+#orbitSpeedText p {
+	color: lightgrey;
 }
 
 #coolGlobe2 {
@@ -525,14 +547,14 @@ button:active, button:focus, button:hover {
 	width: 50px;
 	height: 50px;
 	margin: 25px auto;
-	background-image: url('../img/world2.png');
+	background-image: url('../img/world4.png');
 	background-repeat: repeat-X;
 	background-size: auto 50px;
 	background-position: left bottom;
 	overflow: hidden;
 	border-radius: 50%;
 	-webkit-animation: earthSpin2 15s linear infinite;
-	animation: earthSpin2 15s linear infinite;
+	animation: earthSpin2 5s linear infinite;
 }
 
 /* ROTATE SMALL GLOBE */
@@ -551,7 +573,9 @@ button:active, button:focus, button:hover {
 	text-align: center;
 	width: 95%;
 	max-width: 500px;
-	margin: 25px auto 50px;
+	margin: 25px auto 75px;
+	border-top: 5px solid black;
+	border-bottom: 5px solid black;
 }
 
 #galaxyWrapper img {
@@ -564,13 +588,16 @@ button:active, button:focus, button:hover {
 	text-align: justify;
 	font-style: italic;
 	font-size: .8em;
+	/* color: ivory; */
 }
 
 /* UPWARD MOMENTUM AND VELOCITY */
 #upwardDiv {
 	width: 95%;
 	max-width: 500px;
-	margin: auto;
+	margin: 25px auto 50px;
+	padding-bottom: 35px;
+	background: -webkit-linear-gradient(rgb(150,150,150), black);background: linear-gradient(rgb(150,150,150), black);
 }
 
 #upwardDiv img {
@@ -583,6 +610,7 @@ button:active, button:focus, button:hover {
 	text-align: justify;
 	font-style: italic;
 	font-size: .8em;
+	color: ivory;
 }
 
 /* YOUTUBE VIDEO */
@@ -607,6 +635,11 @@ iframe {
 
 
 /* FOOTER STUFF */
+footer {
+	border-top: 5px solid black;
+	background: -webkit-linear-gradient(left, rgb(200,200,200), rgb(225,225,225), rgb(200,200,200));background: linear-gradient(to right, rgb(200,200,200), rgb(225,225,225), rgb(200,200,200));
+}
+
 ul {
 	list-style: none;
 	text-align: center;
@@ -711,7 +744,7 @@ a {
 	}
 
 	#fortyFiveLat {
-		top: 75px;
+		top: 137.5px;
 		margin-left: 75px;
 	}
 
@@ -720,7 +753,7 @@ a {
 	}
 
 	#eLat{
-		top: 10px; 
+		top: 85px; 
 		margin-left: -190px;
 	}
 
