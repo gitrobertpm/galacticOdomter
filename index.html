@@ -32,9 +32,12 @@
 							<div id="rearviewArm"></div>
 							<div id="rearview"></div>
 							<div id="windshieldText">
-								<p>Multiple sources claim that the average individual will walk about 110,000 miles and drive almost a million in a single lifetime.</p>
-								<p>That's the equivalent of walking the circumference of the Earth's equator more than 4 times, and driving around it nearly 40.</p>
-								<p>But that's nothing compared to the space-miles one travels in a single hour.</p>
+								<p id="introButton">Read the Intro</p>
+								<p class="hiddenText">Multiple sources claim that the average individual will walk about 110,000 miles and drive almost a million in a single lifetime.</p>
+								<p class="hiddenText">That's the equivalent of walking the circumference of the Earth's equator more than 4 times, and driving around it nearly 40.</p>
+								<p class="hiddenText">But that's nothing compared to the space-miles one travels in a single hour.</p>
+								<p class="hiddenText">Enter your date of birth below to see how far you've traveled.  An explanation follows.</p>
+								<p id="closeIntroButton">Close</p>
 							</div>
 							<br>
 							<div id="wiper_L"></div>
@@ -45,6 +48,16 @@
 					</div>
 				</div>
 				<div id="deviceDiv">
+					<br>
+					<div id="outerClockDiv">
+						<div id="outerClockDiv2">
+							<div id="clock"><p id="clockP" class="centeredText"></p></div>
+						</div>
+					</div>
+					<br>
+					<div id="odometerDiv">
+						<p id="odometerP"><span id="odometer">000,000,000,000,000,000</span><span id="olive"> SPACE-MILES</span></p>
+					</div>
 					<div id="formDiv">
 						<div id="innerFormDiv">
 							<div id="innerFormDiv2">
@@ -72,16 +85,6 @@
 								<button onclick="reset()" id="reset">Reset</button>
 							</div>
 						</div>
-					</div>
-					<br>
-					<div id="outerClockDiv">
-						<div id="outerClockDiv2">
-							<div id="clock"><p id="clockP" class="centeredText"></p></div>
-						</div>
-					</div>
-					<br>
-					<div id="odometerDiv">
-						<p id="odometerP"><span id="odometer">000,000,000,000,000,000</span><span id="olive"> SPACE-MILES</span></p>
 					</div>
 					<br>
 				</div>

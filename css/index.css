@@ -156,11 +156,27 @@ header {
 p {
 	line-height: 25px;
 	color: rgb(35,35,35);
-	text-shadow: .5px .5px 0px rgb(125,125,125);
 	width: 90%;
 	max-width: 840px;
 	margin: 15px auto;
 	cursor: default;
+}
+
+.hiddenText,
+#closeIntroButton {
+	display: none;
+}
+
+#introButton,
+#closeIntroButton {
+	text-align: center;
+	cursor: pointer;
+	width: 125px;
+	margin: auto;
+	background: rgba(255,255,240,0.1);
+	border-radius: 2.5px;
+	border-top: 1px solid ivory;
+	border-bottom: 1px solid darkkhaki;
 }
 
 #windshieldText {
@@ -169,13 +185,6 @@ p {
 	font-weight: 100;
 	max-width: 750px;
 	margin: 15px auto;
-	-webkit-transition-duration: .5s;transition-duration: .5s;
-}
-
-#windshieldText:active, #windshieldText:focus, #windshieldText:hover {
-	background: rgba(200,200,200,0.5);
-	border: 2px 2px 0px white;
-	border-radius: 5px;
 	-webkit-transition-duration: .5s;transition-duration: .5s;
 }
 
@@ -588,7 +597,6 @@ button:active, button:focus, button:hover {
 	text-align: justify;
 	font-style: italic;
 	font-size: .8em;
-	/* color: ivory; */
 }
 
 /* UPWARD MOMENTUM AND VELOCITY */
@@ -638,7 +646,7 @@ iframe {
 /* FOOTER STUFF */
 footer {
 	border-top: 5px solid black;
-	background: -webkit-linear-gradient(left, rgb(200,200,200), rgb(255,255,255), rgb(200,200,200));background: linear-gradient(to right, rgb(200,200,200), rgb(255,255,255), rgb(200,200,200));
+	background: -webkit-linear-gradient(left, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%);background: linear-gradient(to right, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%);
 }
 
 ul {
@@ -671,6 +679,18 @@ a {
 
 /* MEDIA QUERRIES FOR MOBILE SCREENS */
 @media screen and (max-width: 500px) {
+	#logoDiv {
+		-webkit-transform: scale(.3);-ms-transform: scale(.3);transform: scale(.3);
+		margin-top: -75px;
+	}
+	
+	#mainTitle {
+		font-weight: 100;
+		font-size: 1em;
+		color: ivory;
+		margin-top: -50px;
+	}
+
 	#earth {
 		-webkit-animation: none;animation: none;
 	}
@@ -688,6 +708,11 @@ a {
 @media screen and (min-width: 1000px) {
 	p {
 		text-align: justify;
+	}
+	
+	#introButton,
+	#closeIntroButton {
+		text-align: center;
 	}
 
 	#mainTitle {

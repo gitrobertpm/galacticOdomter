@@ -63,30 +63,6 @@ function updateClock() {
 	document.getElementById("clockP").innerHTML = currentTimeString;
 };
 
-// GETS INPUTS, CALCULATES SPACE-MILES TRAVELED, AND PRINTS TO THE SCREEN IF CONDITIONS ARE RIGHT
-function getMiles() {
-	var dob_Y = document.getElementById("yearBorn").value;
-	var dob_M = document.getElementById("monthBorn").value;
-	var dob_D = document.getElementById("dayBorn").value;
-	
-	if (dob_Y == "" || isNaN(dob_Y) || dob_M == "" || isNaN(dob_M) || dob_D == "" || isNaN(dob_D)) {
-		alert("All entries must be in the form of numbers. Try again, please.");
-	} else {
-		setMileCounter = setInterval(function(){ mileCounter(); }, 100);
-		function mileCounter() {
-			var currentTime = new Date ( );
-			var bd = new Date(dob_Y,dob_M - 1,dob_D);
-			var odometerReading = (currentTime - bd) / 1000 * 797;
-			document.getElementById("odometer").innerHTML = Math.round(odometerReading).toLocaleString();
-			document.getElementById("yearBorn").disabled = true;
-			document.getElementById("monthBorn").disabled = true;
-			document.getElementById("dayBorn").disabled = true;
-		}
-	}
-	
-	document.getElementById("odometerP").style.color = "ivory";
-};
-
 // RESETS EVERYTHING BACK TO SCRATCH
 function reset() {
 	document.getElementById("yearBorn").disabled = false;
@@ -98,6 +74,26 @@ function reset() {
 	clearInterval(setMileCounter);
 	document.getElementById("odometer").innerHTML = "000,000,000,000,000,000";
 	document.getElementById("odometerP").style.color = "rgb(50,50,50)";
+};
+	
+// GETS INPUTS, CALCULATES SPACE-MILES TRAVELED, AND PRINTS TO THE SCREEN IF CONDITIONS ARE RIGHT
+function getMiles() {
+	var dob_Y = document.getElementById("yearBorn").value;
+	var dob_M = document.getElementById("monthBorn").value;
+	var dob_D = document.getElementById("dayBorn").value;
+
+		setMileCounter = setInterval(function(){ mileCounter(); }, 100);
+		function mileCounter() {
+			var currentTime = new Date ( );
+			var bd = new Date(dob_Y,dob_M - 1,dob_D);
+			var odometerReading = (currentTime - bd) / 1000 * 797;
+			document.getElementById("odometer").innerHTML = Math.round(odometerReading).toLocaleString();
+			document.getElementById("yearBorn").disabled = true;
+			document.getElementById("monthBorn").disabled = true;
+			document.getElementById("dayBorn").disabled = true;
+		};
+	
+	document.getElementById("odometerP").style.color = "ivory";
 };
 
 //CREATE OPTION NODES FOR YEAR BORN SELECT
@@ -111,7 +107,7 @@ for(var i = 2015; i > 1899; i--) {
 }
 
 // CREATE OPTION NODES FOR MONTHBORN SELECT
-for(var i = 1; i < 13; i++) {
+for(var i = 0; i < 12; i++) {
 	var option = document.createElement("option");
 	var node = document.createTextNode(i);
 	option.appendChild(node);
@@ -129,6 +125,29 @@ for(var i = 1; i < 32; i++) {
 	var element = document.getElementById("dayBorn");
 	element.appendChild(option);
 }
+
+// INTRO BUTTONS
+document.getElementById("introButton").onclick = function() {
+	document.getElementById("introButton").style.display = "none";
+	document.getElementById("closeIntroButton").style.display = "block";
+	document.getElementById("windshieldText").style.background = "rgba(255,255,240,0.5)";
+	document.getElementById("windshieldText").style.paddingTop = "10px";
+	document.getElementById("windshieldText").style.paddingBottom = "10px";
+	for (var i = 0; i < document.getElementsByClassName("hiddenText").length; i++) {
+		document.getElementsByClassName("hiddenText")[i].style.display = "block";
+	}
+};
+
+document.getElementById("closeIntroButton").onclick = function() {
+	document.getElementById("closeIntroButton").style.display = "none";
+	document.getElementById("introButton").style.display = "block";
+	document.getElementById("windshieldText").style.background = "none";
+	document.getElementById("windshieldText").style.paddingTop = "0px";
+	document.getElementById("windshieldText").style.paddingBottom = "0px";
+	for (var i = 0; i < document.getElementsByClassName("hiddenText").length; i++) {
+		document.getElementsByClassName("hiddenText")[i].style.display = "none";
+	}
+};
 
 
 /////////////////////////////////////////////////////////////////
