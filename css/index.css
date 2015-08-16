@@ -114,7 +114,7 @@ header {
 }
 
 #mainTitle {
-	font-weight: 100;
+	font-family: 'Megrim', cursive;
 	color: ivory;
 }
 
@@ -180,7 +180,7 @@ p {
 }
 
 #windshieldText {
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-family: 'Electrolize', sans-serif;
 	font-size: 1.1em;
 	font-weight: 100;
 	max-width: 750px;
@@ -254,10 +254,16 @@ p {
 }
 
 #innerFormDiv2  h2 {
+	font-family: 'Electrolize', sans-serif;
+	letter-spacing: 1px;
 	margin: 15px auto 0;
 	background: rgba(255,255,255,0.5);
 	border-top: 1px solid white;
 	border-bottom: 1px solid black;
+}
+
+#innerFormDiv2  h2 span {
+	font-family: Impact, Charcoal, sans-serif;
 }
 
 .inputDiv {
@@ -269,7 +275,7 @@ p {
 }
 
 label {
-	font-family: "Courier New", Courier, monospace;
+	font-family: 'Electrolize', sans-serif;
 	font-weight: bold;
 	background: rgba(255,255,255,0.5);
 	padding-left: 15px;
@@ -280,6 +286,7 @@ label {
 
 select,
 input {
+	font-family: 'Electrolize', sans-serif;
 	display: inline-block;
 	font-size: 1.25em;
 	width: 90%;
@@ -320,11 +327,13 @@ button:active, button:focus, button:hover {
 }
 
 #getMiles {
+	font-family: 'Electrolize', sans-serif;
 	height: 50px;
 	width: 200px;
 }
 
 #reset {
+	font-family: 'Electrolize', sans-serif;
 	padding-bottom: 0;
 }
 
@@ -346,6 +355,7 @@ button:active, button:focus, button:hover {
 }
 
 #clockP {
+	font-family: 'Electrolize', sans-serif;
 	background: rgba(255,255,255,0.5);
 	border-top: 1px solid white;
 	border-bottom: 1px solid black;
@@ -369,19 +379,38 @@ button:active, button:focus, button:hover {
 	font-size: 1.5em;
 }
 
+#odometerP span:nth-of-type(2) {
+	font-family: 'Megrim', cursive;
+}
+
 #olive {
 	color: olive;
 	font-weight: bold;
 }
 
 #explanation {
+	font-family: 'Electrolize', sans-serif;
 	margin-top: 0;
 	padding-top: 10px;
 	background: rgba(128,128,0,0.5);
 	border-bottom: 1px solid black;
 }
 
+#explanationDiv h1 {
+	font-family: 'Megrim', cursive;
+	text-align: center;
+	max-width: 500px;
+	margin: 25px auto;
+	border-top: 5px double darkkhaki;
+	border-bottom: 5px double darkkhaki;
+}
+
+#explanationDiv p {
+	font-family: 'Electrolize', sans-serif;
+}
+
 #explanationDiv p span {
+	font-family: 'Megrim', cursive;
 	font-size: 1.1em;
 	font-weight: bold;
 	color: rgb(165,150,90);
@@ -477,6 +506,7 @@ button:active, button:focus, button:hover {
 }
 
 #solarWrapper p {
+	color: rgb(175,175,175);
 	text-align: center;
 	font-style: italic;
 	font-size: .8em;
@@ -645,6 +675,7 @@ iframe {
 
 /* FOOTER STUFF */
 footer {
+	font-family: 'Electrolize', sans-serif;
 	border-top: 5px solid black;
 	background: -webkit-linear-gradient(left, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%);background: linear-gradient(to right, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%);
 }
@@ -713,6 +744,7 @@ a {
 	#introButton,
 	#closeIntroButton {
 		text-align: center;
+		width: 250px;
 	}
 
 	#mainTitle {
