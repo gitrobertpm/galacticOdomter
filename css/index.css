@@ -795,6 +795,10 @@ a {
 		font-size: 2em;
 	}
 	
+	#explanationDiv h1 {
+		font-size: 3.25em;
+	}
+	
 	/* SPIN SPEED */
 	.lat {
 		font-size: 1em;
