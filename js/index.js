@@ -107,7 +107,7 @@ for(var i = 2015; i > 1899; i--) {
 }
 
 // CREATE OPTION NODES FOR MONTHBORN SELECT
-for(var i = 0; i < 12; i++) {
+for(var i = 1; i < 13; i++) {
 	var option = document.createElement("option");
 	var node = document.createTextNode(i);
 	option.appendChild(node);
