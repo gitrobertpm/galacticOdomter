@@ -94,6 +94,14 @@ function getMiles() {
 		};
 	
 	document.getElementById("odometerP").style.color = "ivory";
+	
+	// ADD SPACE ANIMATIONS TO WINDSHIELD
+	if (width > 600) {
+		document.getElementsByClassName("spaceLeft")[0].style.webkitAnimation = "spaceScrollL 1s linear infinite";
+		document.getElementsByClassName("spaceLeft")[0].style.animation = "spaceScrollL 1s linear infinite";
+		document.getElementsByClassName("spaceRight")[0].style.webkitAnimation = "spaceScrollR 1s linear infinite";
+		document.getElementsByClassName("spaceRight")[0].style.animation = "spaceScrollR 1s linear infinite";
+	}
 };
 
 //CREATE OPTION NODES FOR YEAR BORN SELECT

@@ -125,6 +125,39 @@ header {
 	background: -webkit-linear-gradient(bottom, burlywood, antiquewhite, azure, lightblue, deepskyblue);background: linear-gradient(to top, burlywood, antiquewhite, azure, lightblue, deepskyblue);
 }
 
+.space {
+	position: absolute;
+	display: nonel
+}
+
+.spaceLeft {
+	left: 0px;
+	-webkit-transform: rotateY(30deg);transform: rotateY(30deg);
+}
+
+@-webkit-keyframes spaceScrollL {
+	0% { background-position: 100% 0; }
+	100% { background-position: -1000% 200%; }
+}
+@keyframes spaceScrollL {
+	0% { background-position: 100% 0; }
+	100% { background-position: -1000% 200%; }
+}
+
+.spaceRight {
+	right: 0px;
+	-webkit-transform: rotateY(-30deg);transform: rotateY(-30deg);
+}
+
+@-webkit-keyframes spaceScrollR {
+	0% { background-position: 100% 0; }
+	100% { background-position: 1000% 200%; }
+}
+@keyframes spaceScrollR {
+	0% { background-position: 100% 0; }
+	100% { background-position: 1000% 200%; }
+}
+
 #innerWindshield {
 	background: -webkit-linear-gradient(left, rgba(0,0,0,0.7), rgba(0,0,0,0.2), transparent, rgba(0,0,0,0.2), rgba(0,0,0,0.7));background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2), transparent, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
 }
@@ -171,12 +204,13 @@ p {
 #closeIntroButton {
 	text-align: center;
 	cursor: pointer;
-	width: 125px;
+	min-width: 125px;
 	margin: auto;
 	background: rgba(255,255,240,0.1);
 	border-radius: 2.5px;
 	border-top: 1px solid ivory;
 	border-bottom: 1px solid darkkhaki;
+	z-index: 99;
 }
 
 #windshieldText {
@@ -732,6 +766,23 @@ a {
 
 	#earth2 {
 		-webkit-animation: none;animation: none;
+	}
+}
+
+
+
+/* MEDIA QUERRIES FOR LARGE SCREENS */
+@media screen and (min-width: 600px) {
+	.space {
+		display: block;
+		position: absolute;
+		top: 10px;
+		width: 50%;
+		height: 85%;
+		background-image: -webkit-radial-gradient(white, rgba(200,255,200,.2) 2px, transparent 2px), -webkit-radial-gradient(white, rgba(255,200,200,.3) 2px, transparent 10px), -webkit-radial-gradient(white, rgba(100,150,255,.3) 5px, transparent 15px), -webkit-radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px), -webkit-radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px), -webkit-radial-gradient(white, rgba(255,225,150,.4) 10px, transparent 15px);
+		background-image: radial-gradient(white, rgba(200,255,200,.2) 2px, transparent 2px), radial-gradient(white, rgba(255,200,200,.3) 2px, transparent 10px), radial-gradient(white, rgba(100,150,255,.3) 5px, transparent 15px), radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px), radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 5px), radial-gradient(white, rgba(255,225,150,.4) 10px, transparent 15px);
+		background-size: 90% 100%, 90% 80%, 60% 70%, 70% 60%, 75% 100%, 80% 90%;
+		background-position: top, bottom, center right, top left, bottom left, bottom right;
 	}
 }
 
