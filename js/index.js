@@ -63,45 +63,63 @@ function updateClock() {
 	document.getElementById("clockP").innerHTML = currentTimeString;
 };
 
-// RESETS EVERYTHING BACK TO SCRATCH
-function reset() {
-	document.getElementById("yearBorn").disabled = false;
-	document.getElementById("monthBorn").disabled = false;
-	document.getElementById("dayBorn").disabled = false;
-	document.getElementById("yearBorn").value = "";
-	document.getElementById("monthBorn").value = "";
-	document.getElementById("dayBorn").value = "";
-	clearInterval(setMileCounter);
-	document.getElementById("odometer").innerHTML = "000,000,000,000,000,000";
-	document.getElementById("odometerP").style.color = "rgb(50,50,50)";
+var yearBorn = document.getElementById("yearBorn");
+var monthBorn = document.getElementById("monthBorn");
+var dayBorn = document.getElementById("dayBorn");
+
+var odometer = document.getElementById("odometer");
+var odometerP = document.getElementById("odometerP");
+
+var spaceLeft = document.getElementsByClassName("spaceLeft")[0];
+var spaceRight = document.getElementsByClassName("spaceRight")[0];
+
+// FUNCTION FOR ADDING VENDOR PREFIXES TO ANIMATION PROPERTY
+var styleAnimation = function(element, value) {
+	element.style.webkitAnimation = value;
+	element.style.animation = value;
 };
-	
+
 // GETS INPUTS, CALCULATES SPACE-MILES TRAVELED, AND PRINTS TO THE SCREEN IF CONDITIONS ARE RIGHT
 function getMiles() {
-	var dob_Y = document.getElementById("yearBorn").value;
-	var dob_M = document.getElementById("monthBorn").value;
-	var dob_D = document.getElementById("dayBorn").value;
+	var dob_Y = yearBorn.value;
+	var dob_M = monthBorn.value;
+	var dob_D = dayBorn.value;
 
 		setMileCounter = setInterval(function(){ mileCounter(); }, 100);
 		function mileCounter() {
 			var currentTime = new Date ( );
 			var bd = new Date(dob_Y,dob_M - 1,dob_D);
 			var odometerReading = (currentTime - bd) / 1000 * 797;
-			document.getElementById("odometer").innerHTML = Math.round(odometerReading).toLocaleString();
-			document.getElementById("yearBorn").disabled = true;
-			document.getElementById("monthBorn").disabled = true;
-			document.getElementById("dayBorn").disabled = true;
+			odometer.innerHTML = Math.round(odometerReading).toLocaleString();
+			yearBorn.disabled = true;
+			monthBorn.disabled = true;
+			dayBorn.disabled = true;
 		};
 	
-	document.getElementById("odometerP").style.color = "ivory";
+	odometerP.style.color = "ivory";
 	
 	// ADD SPACE ANIMATIONS TO WINDSHIELD
 	if (width > 600) {
-		document.getElementsByClassName("spaceLeft")[0].style.webkitAnimation = "spaceScrollL 1s linear infinite";
-		document.getElementsByClassName("spaceLeft")[0].style.animation = "spaceScrollL 1s linear infinite";
-		document.getElementsByClassName("spaceRight")[0].style.webkitAnimation = "spaceScrollR 1s linear infinite";
-		document.getElementsByClassName("spaceRight")[0].style.animation = "spaceScrollR 1s linear infinite";
+		styleAnimation(spaceLeft, "spaceScrollL 1s linear infinite");
+		styleAnimation(spaceRight, "spaceScrollR 1s linear infinite");
+
 	}
+};
+
+// RESETS EVERYTHING BACK TO SCRATCH
+function reset() {
+	yearBorn.disabled = false;
+	monthBorn.disabled = false;
+	dayBorn.disabled = false;
+	yearBorn.value = "";
+	monthBorn.value = "";
+	dayBorn.value = "";
+	clearInterval(setMileCounter);
+	odometer.innerHTML = "000,000,000,000,000,000";
+	odometerP.style.color = "rgb(50,50,50)";
+	styleAnimation(spaceLeft, "none");
+	styleAnimation(spaceRight, "none");
+
 };
 
 //CREATE OPTION NODES FOR YEAR BORN SELECT
@@ -110,8 +128,8 @@ for(var i = 2015; i > 1899; i--) {
 	var node = document.createTextNode(i);
 	option.appendChild(node);
 
-	var element = document.getElementById("yearBorn");
-	element.appendChild(option);
+	// var element = document.getElementById("yearBorn");
+	yearBorn.appendChild(option);
 }
 
 // CREATE OPTION NODES FOR MONTHBORN SELECT
@@ -120,8 +138,8 @@ for(var i = 1; i < 13; i++) {
 	var node = document.createTextNode(i);
 	option.appendChild(node);
 
-	var element = document.getElementById("monthBorn");
-	element.appendChild(option);
+	// var element = document.getElementById("monthBorn");
+	monthBorn.appendChild(option);
 }
 
 //CREATE OPTION NODE FOR DAY BORN
@@ -130,30 +148,36 @@ for(var i = 1; i < 32; i++) {
 	var node = document.createTextNode(i);
 	option.appendChild(node);
 
-	var element = document.getElementById("dayBorn");
-	element.appendChild(option);
+	// var element = document.getElementById("dayBorn");
+	dayBorn.appendChild(option);
 }
 
+
 // INTRO BUTTONS
-document.getElementById("introButton").onclick = function() {
-	document.getElementById("introButton").style.display = "none";
-	document.getElementById("closeIntroButton").style.display = "block";
-	document.getElementById("windshieldText").style.background = "rgba(255,255,240,0.5)";
-	document.getElementById("windshieldText").style.paddingTop = "10px";
-	document.getElementById("windshieldText").style.paddingBottom = "10px";
-	for (var i = 0; i < document.getElementsByClassName("hiddenText").length; i++) {
-		document.getElementsByClassName("hiddenText")[i].style.display = "block";
+var introButton = document.getElementById("introButton");
+var closeIntroButton = document.getElementById("closeIntroButton");
+var windshieldText = document.getElementById("windshieldText");
+var hiddenText = document.getElementsByClassName("hiddenText");
+
+introButton.onclick = function() {
+	introButton.style.display = "none";
+	closeIntroButton.style.display = "block";
+	windshieldText.style.background = "rgba(255,255,240,0.5)";
+	windshieldText.style.paddingTop = "10px";
+	windshieldText.style.paddingBottom = "10px";
+	for (var i = 0; i < hiddenText.length; i++) {
+		hiddenText[i].style.display = "block";
 	}
 };
 
-document.getElementById("closeIntroButton").onclick = function() {
-	document.getElementById("closeIntroButton").style.display = "none";
-	document.getElementById("introButton").style.display = "block";
-	document.getElementById("windshieldText").style.background = "none";
-	document.getElementById("windshieldText").style.paddingTop = "0px";
-	document.getElementById("windshieldText").style.paddingBottom = "0px";
-	for (var i = 0; i < document.getElementsByClassName("hiddenText").length; i++) {
-		document.getElementsByClassName("hiddenText")[i].style.display = "none";
+closeIntroButton.onclick = function() {
+	closeIntroButton.style.display = "none";
+	introButton.style.display = "block";
+	windshieldText.style.background = "none";
+	windshieldText.style.paddingTop = "0px";
+	windshieldText.style.paddingBottom = "0px";
+	for (var i = 0; i < hiddenText.length; i++) {
+		hiddenText[i].style.display = "none";
 	}
 };
 
@@ -164,6 +188,10 @@ document.getElementById("closeIntroButton").onclick = function() {
 
 document.getElementById("coolGlobe").innerHTML = '<div id="continentalLightshow"><div id="earth"></div></div>';
 document.getElementById("coolGlobe2").innerHTML = '<div id="continentalLightshow2"><div id="earth2"></div></div>';
+
+var rn = [];
+
+
 
 var a = Math.floor(Math.random() * 255);
 var b = Math.floor(Math.random() * 255);
@@ -178,90 +206,56 @@ var j = Math.floor(Math.random() * 255);
 var k = Math.floor(Math.random() * 255);
 var l = Math.floor(Math.random() * 255);
 
+var IncreaseValue = function(val) {
+	if (val < 255) {
+			val += 1;
+		} else if (val > 254) {
+			val = Math.floor(Math.random() * 255);
+		}
+};
+
+var decreaseValue = function(val) {
+	if (val < 256 && val > 0) {
+			val -= 1;
+		} else if (val < 1) {
+			val = Math.floor(Math.random() * 255);
+		}
+};
+
+var colors = "";
+
+var continentalLightshow = document.getElementById("continentalLightshow");
+var continentalLightshow2 = document.getElementById("continentalLightshow2");
+
 setInterval(function(){ randomBackgroundGradient(); }, 25);
 
 if (width < 500) {
-	document.getElementById("continentalLightshow").style.background = "khaki";
-	
-	document.getElementById("continentalLightshow2").style.background = "khaki";
+	continentalLightshow.style.background = "khaki";
+	continentalLightshow2.style.background = "khaki";
 } else if (width > 499) {
 	
 	function randomBackgroundGradient() {
-		document.getElementById("continentalLightshow").style.background = "repeating-linear-gradient(rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1), rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1))";
+		continentalLightshow.style.background = "-webkit-repeating-linear-gradient(rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1), rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1))";
+		continentalLightshow.style.background = "repeating-linear-gradient(rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1), rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1))";
 		
-		document.getElementById("continentalLightshow2").style.background = "repeating-linear-gradient(rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1), rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1))";
+		continentalLightshow2.style.background = "-webkit-repeating-linear-gradient(rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1), rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1))";
+		continentalLightshow2.style.background = "repeating-linear-gradient(rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1), rgba(" + a + "," + b + "," + c + ", 0.9), rgba(" + d + "," + e + "," + f + ", 1), rgba(" + g + "," + h + "," + i + ", 1), rgba(" + j + "," + k + "," + l + ", 1))";
 		
-		if (a < 255) {
-			a += 1;
-		} else if (a > 254) {
-			a = Math.floor(Math.random() * 255);
-		}
+		IncreaseValue(a);
+		IncreaseValue(b);
+		IncreaseValue(c);
 		
-		if (b < 255) {
-			b += 1;
-		} else if (b > 254) {
-			b = Math.floor(Math.random() * 255);
-		}
+		decreaseValue(d);
+		decreaseValue(e);
+		decreaseValue(f);
 		
-		if (c < 255) {
-			c += 1;
-		} else if (c > 254) {
-			c = Math.floor(Math.random() * 255);
-		}
+		IncreaseValue(g);
+		IncreaseValue(h);
+		IncreaseValue(i);
 		
-		if (d < 256 && d > 0) {
-			d -= 1;
-		} else if (d < 1) {
-			d = Math.floor(Math.random() * 255);
-		}
-		
-		if (e < 256 && e > 0) {
-			e -= 1;
-		} else if (e < 1) {
-			e = Math.floor(Math.random() * 255);
-		}
-		
-		if (f < 256 && f > 0) {
-			f -= 1;
-		} else if (f < 1) {
-			f = Math.floor(Math.random() * 255);
-		}
-		
-		if (g < 255) {
-			g += 1;
-		} else if (g > 254) {
-			g = Math.floor(Math.random() * 255);
-		}
-		
-		if (h < 255) {
-			h += 1;
-		} else if (h > 254) {
-			h = Math.floor(Math.random() * 255);
-		}
-		
-		if (i < 255) {
-			i += 1;
-		} else if (i > 254) {
-			i = Math.floor(Math.random() * 255);
-		}
-		
-		if (j < 256 && j > 0) {
-			j -= 1;
-		} else if (j < 1) {
-			j = Math.floor(Math.random() * 255);
-		}
-		
-		if (k < 256 && k > 0) {
-			k -= 1;
-		} else if (k < 1) {
-			k = Math.floor(Math.random() * 255);
-		}
-		
-		if (l < 256 && l > 0) {
-			l -= 1;
-		} else if (l < 1) {
-			l = Math.floor(Math.random() * 255);
-		}
+		decreaseValue(j);
+		decreaseValue(k);
+		decreaseValue(l);
 	};
 	
 }
