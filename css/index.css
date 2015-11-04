@@ -711,7 +711,7 @@ iframe {
 footer {
 	font-family: 'Electrolize', sans-serif;
 	border-top: 5px solid black;
-	background: -webkit-linear-gradient(left, black 3%, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%, black 97%);background: linear-gradient(to right, black 3%, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%, black 97%);
+	background: -webkit-linear-gradient(left, black 4%, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%, black 96%);background: linear-gradient(to right, black 4%, darkkhaki 5%, rgb(255,255,240) 5.01%, rgb(255,255,240) 94.99%, darkkhaki 95%, black 96%);
 }
 
 ul {
